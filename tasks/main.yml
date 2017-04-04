@@ -6,15 +6,19 @@
 -   name: Install Pypi
     easy_install: name=pip
     tags: docker
+    environment: "{{proxy_env}}"
 
 -   name: Install docker-py
     pip: name=docker-py
     tags: docker
+    environment: "{{proxy_env}}"
 
 -   name: Install Docker
     yum: name=docker state=latest
     tags: docker
+    environment: "{{proxy_env}}"
 
 -   name: Make sure Docker is running
     service: name=docker state=running
     tags: docker
+    environment: "{{proxy_env}}"
